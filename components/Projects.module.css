@@ -1,0 +1,92 @@
+.projects {
+  padding: var(--section-padding);
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+.project {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project h3 {
+  color: var(--color-dark);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-accent-light);
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h4 {
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+.subsection {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.subsection h5 {
+  color: var(--color-accent);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-accent-light);
+  color: var(--color-dark);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.link:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+@media (min-width: 992px) {
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .project {
+    padding: 1.5rem;
+  }
+}
+

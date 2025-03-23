@@ -16,6 +16,7 @@ next-env.d.ts
 **/page_client-reference-manifest.js
 **/_not-found*
 **/*.js.map
+.next/static/chunks/app
 
 # production
 /build

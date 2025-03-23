@@ -58,11 +58,20 @@ export default function AboutMe() {
               onMouseLeave={() => setIsHovered(false)}
             >
               <Image
-                src={isHovered ? profilePic2 : profilePic}
+                src={profilePic}
                 alt="Dillon Cleaver profile picture"
                 width={500}
                 height={300}
-                className={styles.image}
+                className={`${styles.image} ${isHovered ? styles.fadeOut : ""}`}
+              />
+              <Image
+                src={profilePic2}
+                alt="Dillon Cleaver profile picture alternate"
+                width={500}
+                height={300}
+                className={`${styles.image} ${styles.secondImage} ${
+                  isHovered ? styles.fadeIn : ""
+                }`}
               />
             </div>
           </div>

@@ -46,6 +46,12 @@ export default function AboutMe() {
             </p>
           </div>
           <div className={styles.imageContainer}>
+            <div className={styles.decorTopRight}></div>
+            <div className={styles.decorTopLeft}></div>
+            <div className={styles.decorBottomRight}></div>
+            <div className={styles.decorBottomLeft}></div>
+            <div className={styles.decorLeft}></div>
+            <div className={styles.decorRight}></div>
             <div
               className={styles.imageFrame}
               onMouseEnter={() => setIsHovered(true)}

@@ -34,9 +34,13 @@
   position: relative;
 }
 
-.imageContainer::before,
-.imageContainer::after {
-  content: "";
+/* Base styles for decorative elements */
+.decorTopRight,
+.decorTopLeft,
+.decorBottomRight,
+.decorBottomLeft,
+.decorLeft,
+.decorRight {
   position: absolute;
   width: 150px;
   height: 150px;
@@ -47,18 +51,71 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.imageContainer::before {
+.decorTopLeft {
   top: -50px;
   left: -50px;
   transform: rotate(45deg);
   clip-path: path("M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50");
 }
 
-.imageContainer::after {
+.decorBottomRight {
   bottom: -50px;
   right: -50px;
   transform: rotate(-45deg);
   clip-path: path("M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50");
+}
+
+.decorTopRight {
+  top: -40px;
+  right: -40px;
+  transform: rotate(30deg);
+  clip-path: path("M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50");
+}
+
+.decorBottomLeft {
+  bottom: -40px;
+  left: -40px;
+  transform: rotate(-30deg);
+  clip-path: path("M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50");
+}
+
+.decorLeft {
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  clip-path: path("M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50");
+}
+
+.decorRight {
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  clip-path: path("M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50");
+}
+
+/* Hover animations */
+.imageContainer:hover .decorTopLeft {
+  transform: rotate(90deg) scale(1.1);
+}
+
+.imageContainer:hover .decorBottomRight {
+  transform: rotate(-90deg) scale(1.1);
+}
+
+.imageContainer:hover .decorTopRight {
+  transform: rotate(60deg) scale(1.1);
+}
+
+.imageContainer:hover .decorBottomLeft {
+  transform: rotate(-60deg) scale(1.1);
+}
+
+.imageContainer:hover .decorLeft {
+  transform: translateY(-50%) rotate(180deg) scale(1.1);
+}
+
+.imageContainer:hover .decorRight {
+  transform: translateY(-50%) rotate(0deg) scale(1.1);
 }
 
 .imageFrame {
@@ -74,17 +131,9 @@
   margin: 0 auto;
 }
 
-.imageContainer:hover .imageFrame {
+.imageFrame:hover {
   transform: rotate(0deg) scale(1.02);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.imageContainer:hover::before {
-  transform: rotate(90deg) scale(1.1);
-}
-
-.imageContainer:hover::after {
-  transform: rotate(-90deg) scale(1.1);
 }
 
 .image {
@@ -120,19 +169,13 @@
     height: 300px;
   }
 
-  .imageContainer::before,
-  .imageContainer::after {
-    width: 100px;
-    height: 100px;
-  }
-
-  .imageContainer::before {
-    top: -30px;
-    left: -30px;
-  }
-
-  .imageContainer::after {
-    bottom: -30px;
-    right: -30px;
+  .decorTopRight,
+  .decorTopLeft,
+  .decorBottomRight,
+  .decorBottomLeft,
+  .decorLeft,
+  .decorRight {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -1,8 +1,30 @@
-import styles from "./Projects.module.css"
+import styles from "./Projects.module.css";
+
+interface Link {
+  text: string;
+  url: string;
+}
+
+interface ContentItem {
+  subheading: string;
+  content?: string;
+  list?: string[];
+  links?: Link[];
+}
+
+interface Section {
+  heading: string;
+  content: (string | ContentItem)[];
+}
+
+interface Project {
+  title: string;
+  sections: Section[];
+}
 
 export default function Projects() {
   // Project template structure
-  const projectTemplate = {
+  const projectTemplate: Project = {
     title: "Project Title",
     sections: [
       {
@@ -60,7 +82,11 @@ export default function Projects() {
             subheading: "Killer Feature",
             content:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl.",
-            list: ["Technical detail one", "Technical detail two", "Technical detail three"],
+            list: [
+              "Technical detail one",
+              "Technical detail two",
+              "Technical detail three",
+            ],
           },
           {
             subheading: "Technical Hurdles",
@@ -104,10 +130,10 @@ export default function Projects() {
         ],
       },
     ],
-  }
+  };
 
   // Create multiple project templates
-  const projects = [projectTemplate, projectTemplate, projectTemplate]
+  const projects = [projectTemplate, projectTemplate, projectTemplate];
 
   return (
     <section id="projects" className={styles.projects}>
@@ -127,7 +153,7 @@ export default function Projects() {
 
                   {section.content.map((item, itemIndex) => {
                     if (typeof item === "string") {
-                      return <p key={itemIndex}>{item}</p>
+                      return <p key={itemIndex}>{item}</p>;
                     } else if ("subheading" in item) {
                       return (
                         <div key={itemIndex} className={styles.subsection}>
@@ -159,9 +185,9 @@ export default function Projects() {
                             </div>
                           )}
                         </div>
-                      )
+                      );
                     }
-                    return null
+                    return null;
                   })}
                 </div>
               ))}
@@ -170,6 +196,5 @@ export default function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

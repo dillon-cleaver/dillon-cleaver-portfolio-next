@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Dillon Cleaver
+          Dillon Cleaver <span className={styles.wave}>👋</span>
         </Link>
 
         <button

@@ -1,14 +1,21 @@
-import styles from "./Footer.module.css"
+"use client";
+
+import styles from "./Footer.module.css";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <p>&copy; {currentYear} Dillon Cleaver. All rights reserved.</p>
         <div className={styles.socialLinks}>
-          <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a
+            href="https://linkedin.com/in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -25,7 +32,12 @@ export default function Footer() {
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </a>
-          <a href="https://bsky.app/" target="_blank" rel="noopener noreferrer" aria-label="BlueSky">
+          <a
+            href="https://bsky.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="BlueSky"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -43,6 +55,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

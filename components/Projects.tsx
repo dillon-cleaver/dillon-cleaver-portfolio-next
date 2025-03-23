@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./Projects.module.css";
 
 interface Link {

@@ -10,6 +10,15 @@ node_modules
 /.next/
 /out/
 .next/cache/
+.next/server/
+.next/static/
+.next/cache/
+webpack-runtime.js
+page_client-reference-manifest.js
+page.js
+webpack.js
+*.chunk.js
+*.chunk.css
 
 # production
 /build

@@ -1,21 +1,21 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import styles from "./Navbar.module.css"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
@@ -24,7 +24,11 @@ export default function Navbar() {
           Dillon Cleaver
         </Link>
 
-        <button className={styles.menuButton} onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+        <button
+          className={styles.menuButton}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -49,6 +53,5 @@ export default function Navbar() {
         </ul>
       </div>
     </nav>
-  )
+  );
 }
-

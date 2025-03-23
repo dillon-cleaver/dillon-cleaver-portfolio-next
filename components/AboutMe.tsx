@@ -1,5 +1,7 @@
-import Image from "next/image"
-import styles from "./AboutMe.module.css"
+"use client";
+
+import Image from "next/image";
+import styles from "./AboutMe.module.css";
 
 export default function AboutMe() {
   return (
@@ -9,13 +11,17 @@ export default function AboutMe() {
           <div className={styles.text}>
             <h1 className={styles.title}>Frontend Developer</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl vel ultricies lacinia, nisl
-              nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nisl
-              nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget
+              aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies
+              lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet
+              nisl.
             </p>
             <p>
-              Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl. Sed
-              euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
+              Sed euismod, nisl vel ultricies lacinia, nisl nisl aliquam nisl,
+              eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel
+              ultricies lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl
+              sit amet nisl.
             </p>
           </div>
           <div className={styles.imageContainer}>
@@ -32,6 +38,5 @@ export default function AboutMe() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

@@ -9,16 +9,13 @@ node_modules
 # next.js
 /.next/
 /out/
-.next/cache/
-.next/server/
-.next/static/
-.next/cache/
-webpack-runtime.js
-page_client-reference-manifest.js
-page.js
-webpack.js
-*.chunk.js
-*.chunk.css
+.next/
+next-env.d.ts
+.next/**/*
+**/*.tsbuildinfo
+**/page_client-reference-manifest.js
+**/_not-found*
+**/*.js.map
 
 # production
 /build
@@ -26,11 +23,15 @@ webpack.js
 # misc
 .DS_Store
 *.pem
+.env
+.env.*
+!.env.example
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # local env files
 .env*.local
@@ -41,3 +42,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

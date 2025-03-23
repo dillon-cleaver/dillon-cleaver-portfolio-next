@@ -93,6 +93,7 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
+      console.error("Form submission error:", error);
       setFormStatus({
         type: "error",
         message: "There was an error sending your message. Please try again.",
@@ -164,7 +165,7 @@ export default function ContactForm() {
               <div className={styles.error}>{errors.message}</div>
             )}
           </div>
- 
+
           <button
             type="submit"
             disabled={isSubmitting}

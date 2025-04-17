@@ -197,3 +197,12 @@
     height: 80px;
   }
 }
+
+@media (max-width: 768px) {
+  .about {
+    padding-top: 6rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+}

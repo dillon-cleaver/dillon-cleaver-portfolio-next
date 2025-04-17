@@ -16,33 +16,32 @@ export default function AboutMe() {
           <div className={styles.text}>
             <h1 className={styles.title}>Frontend Developer</h1>
             <p>
-              Hi, I&apos;m Dillon! I&apos;m a frontend developer with a strong
-              UI/UX sense, focused on building engaging web and mobile
-              applications. With years of experience developing cross-platform
-              apps for iOS, Android, and the web using React Native and the Expo
-              framework, I thrive on crafting intuitive, high-performance user
-              experiences.
+              Hi, I&apos;m Dillon! I&apos;m a frontend-focused software engineer
+              with over three years of experience building engaging, intuitive,
+              and accessible cross-platform applications for iOS, Android, and
+              the web
             </p>
             <p>
-              I&apos;m proficient in React Native, React, TypeScript, JavaScript
-              (ES6+), Node.js, Redux, RESTful APIs, Firebase, and Expo. I also
-              have a solid foundation in UX/UI design, Figma, and wireframing,
-              collaborating seamlessly with designers and project managers to
-              bring ideas to life.
+              I specialize in crafting high-performance user experiences using
+              React Native, React, TypeScript, JavaScript (ES6+), Node.js,
+              Redux, RESTful APIs, Firebase, and the Expo framework. With a
+              strong foundation in UI/UX principles and experience with tools
+              like Figma, I excel at collaborating with designers and project
+              managers within agile environments (using GitHub and CI/CD
+              practices) to bring ideas to life.
             </p>
             <p>
-              Beyond tech, my background spans 15+ years in retail, food
-              service, freelance writing, and content creation, along with
-              volunteer roles as a counselor, educator, treasurer, and activist.
+              My technical expertise is enriched by a diverse background
+              spanning 15+ years in retail, food service, freelance writing,
+              content creation, and IT support, providing a unique perspective
+              on user needs. Volunteer roles as a counselor, educator,
+              treasurer, and activist further shape my collaborative approach.
+            </p>
+            <p>
               I&apos;m a native English speaker with conversational German
-              (B2.2) and an avid traveler, reader, cinema lover, gamer, sports
-              enthusiast, and lifelong learner.
-            </p>
-            <p>
-              Currently, I&apos;m a full-stack software engineer at SecretLab in
-              Minneapolis, Minnesota. Even with a full-time role, I make time
-              for personal projects and continuous learning—always seeking new
-              challenges and opportunities to grow.
+              (B2.2), an avid traveler, reader, cinema lover, gamer, sports
+              enthusiast, and a dedicated lifelong learner, always seeking new
+              challenges and opportunities for growth ✨
             </p>
           </div>
           <div className={styles.imageContainer}>

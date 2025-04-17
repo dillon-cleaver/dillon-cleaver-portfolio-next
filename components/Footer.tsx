@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p>&copy; {currentYear} Dillon Cleaver. All rights reserved.</p>
+        <p>&copy; {currentYear} Dillon Cleaver</p>
         <div className={styles.socialLinks}>
           <a
             href="https://linkedin.com/in/"

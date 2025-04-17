@@ -88,5 +88,11 @@
   .project {
     padding: 1.5rem;
   }
+  .projects {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .container {
+    padding: 0 0rem;
+  }
 }
-

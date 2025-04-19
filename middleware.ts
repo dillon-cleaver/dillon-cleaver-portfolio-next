@@ -1,13 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
-export function middleware() {
+export function middleware(request: NextRequest) {
   if (process.env.NEXT_PUBLIC_MAINTENANCE_MODE === "true") {
-    return NextResponse.redirect(
-      new URL(
-        "/maintenance",
-        process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-      )
-    );
+    // Construct the full URL to the maintenance page on the same origin
+    const maintenanceUrl = new URL("/maintenance", request.url);
+    return NextResponse.redirect(maintenanceUrl);
   }
   return NextResponse.next();
 }

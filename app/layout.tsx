@@ -14,6 +14,9 @@ const bitter = Bitter({
 export const metadata: Metadata = {
   title: "Dillon Cleaver | Frontend Developer Portfolio",
   description: "Personal portfolio website for Dillon Cleaver.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

@@ -75,8 +75,6 @@ export default function ContactForm() {
     }
   };
 
-  console.log(formData, "<--- here");
-
   return (
     <section id="contact" className={styles.contact}>
       <div className={styles.container}>

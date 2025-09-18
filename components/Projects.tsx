@@ -1,10 +1,14 @@
 "use client";
 
 import styles from "./Projects.module.css";
+import ExternalLinkIcon from "./icons/ExternalLinkIcon";
+import DesignIcon from "./icons/DesignIcon";
+import CodeIcon from "./icons/CodeIcon";
 
 interface Link {
   text: string;
   url: string;
+  icon?: "external" | "design" | "code";
 }
 
 interface ContentItem {
@@ -83,7 +87,23 @@ const projects: Project[] = [
           },
           {
             subheading: "Links",
-            links: [{ text: "Live Demo", url: "https://nerd-word.expo.app/" }],
+            links: [
+              {
+                text: "Live Demo",
+                url: "https://nerd-word.expo.app/",
+                icon: "external",
+              },
+              {
+                text: "Source Code",
+                url: "https://github.com/dillon-cleaver/nerd-wordle",
+                icon: "code",
+              },
+              {
+                text: "Design System",
+                url: "https://www.figma.com/design/Sxjpz6GMvd2UjRzfQteCCY/nerd-words-design?node-id=0-1&t=3lBAlGNNTBJtHIsy-1",
+                icon: "design",
+              },
+            ],
           },
         ],
       },
@@ -215,17 +235,31 @@ export default function Projects() {
 
                       {item.links && (
                         <div className={styles.links}>
-                          {item.links.map((link, linkIndex) => (
-                            <a
-                              key={linkIndex}
-                              href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={styles.link}
-                            >
-                              {link.text}
-                            </a>
-                          ))}
+                          {item.links.map((link, linkIndex) => {
+                            const IconComponent =
+                              link.icon === "external"
+                                ? ExternalLinkIcon
+                                : link.icon === "design"
+                                ? DesignIcon
+                                : link.icon === "code"
+                                ? CodeIcon
+                                : null;
+
+                            return (
+                              <a
+                                key={linkIndex}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.link}
+                              >
+                                {IconComponent && (
+                                  <IconComponent width={16} height={16} />
+                                )}
+                                {link.text}
+                              </a>
+                            );
+                          })}
                         </div>
                       )}
                     </div>

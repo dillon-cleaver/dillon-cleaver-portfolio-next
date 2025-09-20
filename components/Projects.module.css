@@ -79,6 +79,12 @@
   color: white;
 }
 
+@media (max-width: 768px) {
+  .icon {
+    display: none;
+  }
+}
+
 @media (min-width: 992px) {
   .projectsGrid {
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));

@@ -103,7 +103,6 @@
     padding: 0 1rem;
   }
   .contact {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding: 2.5rem 1rem 2.5rem 1rem;
   }
 }

@@ -34,6 +34,18 @@
   position: relative;
 }
 
+/* Keep the fancy bits only on larger screens */
+@media (max-width: 768px) {
+  .decorTopRight,
+  .decorTopLeft,
+  .decorBottomRight,
+  .decorBottomLeft,
+  .decorLeft,
+  .decorRight {
+    display: none;
+  }
+}
+
 /* Base styles for decorative elements */
 .decorTopRight,
 .decorTopLeft,
@@ -200,8 +212,7 @@
 
 @media (max-width: 768px) {
   .about {
-    padding-top: 6rem;
-    padding-bottom: 4rem;
+    padding: 6rem 1rem 4rem 1rem;
   }
   .container {
     padding: 0 1rem;

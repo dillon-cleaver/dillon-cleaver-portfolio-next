@@ -1,9 +1,10 @@
 "use client";
 
 import styles from "./Projects.module.css";
-import ExternalLinkIcon from "./icons/ExternalLinkIcon";
+import ProjectsIcon from "./icons/ProjectsIcon";
 import DesignIcon from "./icons/DesignIcon";
 import CodeIcon from "./icons/CodeIcon";
+import GitHubIcon from "./icons/GitHubIcon";
 import { projects } from "../data/projects";
 
 export default function Projects() {
@@ -39,12 +40,14 @@ export default function Projects() {
                         <div className={styles.links}>
                           {item.links.map((link, linkIndex) => {
                             const IconComponent =
-                              link.icon === "external"
-                                ? ExternalLinkIcon
+                              link.icon === "project"
+                                ? ProjectsIcon
                                 : link.icon === "design"
                                 ? DesignIcon
                                 : link.icon === "code"
                                 ? CodeIcon
+                                : link.icon === "github"
+                                ? GitHubIcon
                                 : null;
 
                             // TODO: Refactor IconComponent by creating a dedicated, reusable, and polymorphic component for icon rendering, props, accessibility, and styling. Consider centralizing icon logic, supporting dynamic icon selection, sizing, ARIA attributes, and polymorphic rendering.

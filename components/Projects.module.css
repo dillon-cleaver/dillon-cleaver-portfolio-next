@@ -60,11 +60,13 @@
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  align-items: stretch; /* equal height buttons for consistent vertical centering */
 }
 
 .link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background-color: var(--color-accent-light);
@@ -72,6 +74,8 @@
   border-radius: 4px;
   font-weight: 500;
   transition: var(--transition);
+  line-height: 1; /* ensure perfect vertical centering of text */
+  text-align: center; /* center multi-line labels */
 }
 
 .link:hover {
@@ -82,6 +86,11 @@
 @media (max-width: 768px) {
   .icon {
     display: none;
+  }
+  /* when icons are hidden, ensure text remains perfectly centered */
+  .link {
+    align-items: center;
+    justify-content: center;
   }
 }
 

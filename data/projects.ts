@@ -2,7 +2,7 @@
 export type Link = {
   text: string;
   url: string;
-  icon?: "external" | "design" | "code";
+  icon?: "project" | "design" | "code" | "github";
 };
 
 export type ContentItem = {
@@ -79,22 +79,35 @@ export const projects: Project[] = [
             ],
           },
           {
+            subheading: "Tooling & Workflow",
+            list: [
+              "Bootstrapped with Expo using create-expo-app (basic template)",
+              "VS Code Chat/GitHub Copilot and Cursor for tests, refactors, semantic navigation, and safe structured edits across modules",
+              "Figma for design system and UI component specs",
+            ],
+          },
+          {
             subheading: "Links",
             links: [
               {
                 text: "Live Demo",
                 url: "https://nerd-word.expo.app/",
-                icon: "external",
+                icon: "project",
               },
               {
-                text: "Source Code",
+                text: "GitHub Repo",
                 url: "https://github.com/dillon-cleaver/nerd-wordle",
-                icon: "code",
+                icon: "github",
               },
               {
                 text: "Design System",
                 url: "https://www.figma.com/design/Sxjpz6GMvd2UjRzfQteCCY/nerd-words-design?node-id=0-1&t=3lBAlGNNTBJtHIsy-1",
                 icon: "design",
+              },
+              {
+                text: "Project Board",
+                url: "https://github.com/users/dillon-cleaver/projects/2",
+                icon: "project",
               },
             ],
           },
@@ -189,6 +202,105 @@ export const projects: Project[] = [
             subheading: "Impact on Future Work",
             content:
               "This project validates architectural patterns I'll continue applying to client work - particularly the CDN-first content strategy for apps requiring frequent updates without app store dependency. While this React Native/Firebase stack has proven highly effective for rapid development and scaling, I'm planning to explore SQL backends in future projects to broaden my skillset and leverage the benefits of relational databases: ACID compliance for complex transactions, mature query optimization, better data integrity constraints, and more predictable performance characteristics for data-heavy applications. The detailed analytics and user behavior tracking demonstrate the type of data-driven approach I bring to product development decisions.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Portfolio Website",
+    sections: [
+      {
+        heading: "Introduction",
+        content: [
+          {
+            subheading: "Overview",
+            content:
+              "This portfolio is a modern, performant site built with the Next.js App Router, showcasing projects, background, and a contact form. It emphasizes accessibility, responsive design, and clean, component-driven architecture.",
+          },
+          {
+            subheading: "My Role",
+            content:
+              "I designed and developed the entire application end-to-end: information architecture, component composition, styling system, API route for email, validation, and deployment configuration. The initial template and file structure were scaffolded with Vercel's v0, then iterated in Cursor using AI-assisted refactors and safe code edits.",
+            list: [
+              "Component-driven UI with reusable sections (Navbar, About, Projects, Contact, Footer)",
+              "Form validation with Zod and client-side UX states",
+              "Email delivery via API route integrated with Resend",
+              "Environment-driven maintenance mode using Next middleware",
+            ],
+          },
+          {
+            subheading: "Tooling & Workflow",
+            list: [
+              "Vercel v0 used to generate the initial site template and component scaffolds",
+              "Cursor for AI-assisted edits: semantic code navigation, structured refactors, and inline type fixes",
+              "Tight feedback loop with linter/type checks to keep changes safe and incremental",
+            ],
+          },
+          {
+            subheading: "Technologies Used",
+            list: [
+              "Next.js 15 ✓ (App Router)",
+              "React 19 ✓",
+              "TypeScript ✓",
+              "CSS Modules ✓ (scoped styling)",
+              "Zod ✓ (form validation)",
+              "Resend ✓ (email API integration)",
+              "Next Middleware ✓ (maintenance mode)",
+              "Google Fonts ✓ (Bitter)",
+            ],
+          },
+          {
+            subheading: "Additional Features",
+            list: [
+              "Smooth scrolling and section anchors",
+              "Responsive layout with grid-based project cards",
+              "Strict typing for project content data model",
+              "Optimized images configured via Next settings (unoptimized flag for simple static hosting)",
+            ],
+          },
+          {
+            subheading: "Links",
+            links: [
+              {
+                text: "GitHub Repo",
+                url: "https://github.com/dillon-cleaver/dillon-cleaver-portfolio-next",
+                icon: "github",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Spotlight",
+        content: [
+          {
+            subheading: "Contact Flow",
+            content:
+              "The contact form uses Zod for client-side validation and a Next.js Route Handler to send emails through Resend with proper error handling and success states.",
+          },
+          {
+            subheading: "Maintenance Mode",
+            content:
+              "A lightweight middleware checks an environment flag (NEXT_PUBLIC_MAINTENANCE_MODE) and redirects traffic to a dedicated maintenance page without affecting API routes.",
+          },
+          {
+            subheading: "Architecture",
+            list: [
+              "App Router with metadata for SEO and icons",
+              "Font loading via next/font with CSS variables",
+              "Isolated CSS Modules per component for maintainable styles",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Lessons Learned",
+        content: [
+          {
+            subheading: "Overview",
+            content:
+              "Keeping content structured and typed (projects data model) reduces coupling between presentation and data, enabling easier future additions and refactors.",
           },
         ],
       },

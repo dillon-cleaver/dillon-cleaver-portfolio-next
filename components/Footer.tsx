@@ -11,7 +11,7 @@ export default function Footer() {
         <p>&copy; {currentYear} Dillon Cleaver</p>
         <div className={styles.socialLinks}>
           <a
-            href="https://linkedin.com/in/"
+            href="https://www.linkedin.com/in/dillon-cleaver/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -28,7 +28,7 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href="https://bsky.app/"
+            href="https://bsky.app/profile/dilloncleaver.bsky.social"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="BlueSky"

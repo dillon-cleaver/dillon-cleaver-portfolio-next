@@ -92,7 +92,7 @@ export const projects: Project[] = [
               {
                 text: "Live Demo",
                 url: "https://nerd-word.expo.app/",
-                icon: "project",
+                icon: "code",
               },
               {
                 text: "GitHub Repo",

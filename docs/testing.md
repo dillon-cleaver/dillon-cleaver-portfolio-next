@@ -28,9 +28,12 @@ pnpm test:coverage
 - **Jest Config**: `jest.config.ts` - Next.js-optimized Jest configuration with full TypeScript support
 - **Setup**: `jest.setup.ts` - Global test setup and mocks (Next.js router, fetch API)
 - **Types**: `types/jest.d.ts` - TypeScript definitions for Jest DOM matchers
-- **Dependencies**: All recommended dependencies from Next.js docs:
+- **Dependencies**: Complete React Testing Library ecosystem:
   - `jest` + `jest-environment-jsdom` - Core testing framework
-  - `@testing-library/react` + `@testing-library/dom` + `@testing-library/jest-dom` - Testing utilities
+  - `@testing-library/react` - React component testing utilities
+  - `@testing-library/dom` - DOM testing utilities
+  - `@testing-library/jest-dom` - Custom Jest matchers (toBeInTheDocument, etc.)
+  - `@testing-library/user-event` - Realistic user interaction simulation
   - `ts-node` + `@types/jest` - TypeScript support
 
 ## What's Tested
@@ -48,6 +51,25 @@ pnpm test:coverage
 ### API Routes
 
 - **Contact API**: Email sending, error handling, environment validation
+
+## React Testing Library Features
+
+This project uses the complete React Testing Library ecosystem for component testing:
+
+### Currently Implemented
+
+- ✅ **Rendering**: `render()` for component mounting
+- ✅ **Querying**: `screen.getByRole()`, `getByLabelText()`, `getByText()`
+- ✅ **User Interactions**: `fireEvent` for form submissions and clicks
+- ✅ **Async Testing**: `waitFor()` for async operations and state changes
+- ✅ **Custom Matchers**: `toBeInTheDocument()`, `toBeDisabled()`, `toHaveValue()`
+- ✅ **Accessibility-First**: Role-based queries prioritized for better test quality
+
+### Available for Enhancement
+
+- 🔄 **User Event**: `@testing-library/user-event` installed - upgrade from `fireEvent` to `userEvent` for more realistic interactions
+- 🔄 **Scoped Queries**: `within()` for testing within specific containers
+- 🔄 **Advanced Queries**: `getAllByRole()`, `queryBy*()`, `findBy*()` patterns
 
 ## Test Environment
 

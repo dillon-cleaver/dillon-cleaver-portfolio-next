@@ -22,8 +22,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "pnpm"
+          node-version: '18'
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
@@ -55,28 +55,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build application
-        run: pnpm build
-        env:
-          RESEND_API_KEY: "test_key_for_ci"
+          node-version: '18'
+          cache: 'pnpm'
 
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
+          install-command: pnpm install
           build: pnpm build
           start: pnpm start
-          wait-on: "http://localhost:3000"
+          wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: chrome
           record: false
         env:
-          RESEND_API_KEY: "test_key_for_ci"
+          RESEND_API_KEY: 'test_key_for_ci'
 
       - name: Upload Cypress videos
         uses: actions/upload-artifact@v4

@@ -58,11 +58,26 @@ jobs:
           node-version: '18'
           cache: 'pnpm'
 
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Verify Cypress installation
+        run: npx cypress verify
+
+      - name: Install Cypress binary if needed
+        run: npx cypress install
+        if: failure()
+
+      - name: Build application
+        run: pnpm build
+        env:
+          RESEND_API_KEY: 'test_key_for_ci'
+
       - name: Run Cypress E2E tests
         uses: cypress-io/github-action@v6
         with:
-          install-command: pnpm install
-          build: pnpm build
+          install: false
+          build: echo "Already built"
           start: pnpm start
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120

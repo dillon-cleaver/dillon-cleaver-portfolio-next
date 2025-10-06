@@ -10,7 +10,7 @@ A modern, responsive portfolio website built with Next.js 15, showcasing profess
 - **Maintenance Mode**: Built-in maintenance page for updates
 - **TypeScript**: Fully typed codebase for better development experience
 - **Mobile-First**: Responsive design optimized for all device sizes
-- **Test Coverage**: Comprehensive Jest + React Testing Library test suite with 27+ tests
+- **Test Coverage**: Comprehensive testing with Jest + React Testing Library (unit tests) and Cypress (E2E tests)
 
 ## 🛠️ Tech Stack
 
@@ -19,18 +19,27 @@ A modern, responsive portfolio website built with Next.js 15, showcasing profess
 - **Styling**: CSS Modules for component-scoped styling
 - **Email Service**: [Resend](https://resend.com/) for contact form functionality
 - **Form Handling**: React Hook Form with Zod validation
-- **Testing**: [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/)
+- **Testing**: [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/) + [Cypress](https://www.cypress.io/)
 - **Deployment**: Optimized for Vercel deployment
 
 ## 📦 Project Structure
 
 ```
-├── __tests__/             # Test files with Jest + RTL
+├── __tests__/             # Unit test files with Jest + RTL
 │   ├── ContactForm.test.tsx  # Form validation & submission tests
 │   ├── Navbar.test.tsx       # Navigation component tests
 │   ├── projects.test.ts      # Data validation tests
 │   ├── validation.test.ts    # Utility function tests
 │   └── api-contact.test.ts   # API route tests
+├── cypress/               # E2E test files with Cypress
+│   ├── e2e/               # End-to-end test specifications
+│   │   ├── homepage.cy.ts       # Main page navigation tests
+│   │   ├── contact-form.cy.ts   # Contact form E2E tests
+│   │   ├── projects.cy.ts       # Projects section tests
+│   │   ├── accessibility.cy.ts  # Accessibility & SEO tests
+│   │   └── maintenance.cy.ts    # Maintenance mode tests
+│   ├── support/           # Cypress support files
+│   └── tsconfig.json      # TypeScript config for Cypress
 ├── app/                    # Next.js App Router pages
 │   ├── api/               # API routes
 │   │   └── contact/       # Contact form API endpoint
@@ -64,15 +73,17 @@ This portfolio demonstrates modern web development practices and architecture de
 - **Scalability**: Component-based architecture with TypeScript for maintainability
 - **User Experience**: Responsive design with CSS Modules for scoped styling
 - **Infrastructure**: Serverless deployment with integrated email functionality
-- **Quality Assurance**: Comprehensive test suite with 27+ tests covering components, utilities, and API routes
+- **Quality Assurance**: Comprehensive testing with 27+ unit tests + E2E test suite covering all user workflows
 - **Developer Experience**: ESLint configuration, testing framework, and development tooling
 
 ## 🧪 Testing
 
-This project includes a comprehensive test suite to ensure code quality and reliability:
+This project includes a comprehensive two-tier testing strategy to ensure code quality and reliability:
+
+### Unit Tests (Jest + React Testing Library)
 
 ```bash
-# Run all tests
+# Run all unit tests
 pnpm test
 
 # Run tests in watch mode
@@ -82,16 +93,42 @@ pnpm test:watch
 pnpm test:coverage
 ```
 
+### End-to-End Tests (Cypress)
+
+```bash
+# Open Cypress Test Runner (interactive)
+pnpm cypress:open
+
+# Run E2E tests headlessly
+pnpm cypress:run
+
+# Run dev server and E2E tests together
+pnpm test:e2e:dev
+
+# Run all tests (unit + E2E)
+pnpm test:all
+```
+
 ### Test Coverage
+
+**Unit Tests (Jest + RTL)**:
 
 - **Components**: Form validation, navigation behavior, user interactions
 - **Utilities**: Email validation, form helpers, data processing
 - **API Routes**: Contact form submission, error handling
 - **Data Structures**: Project data validation and type safety
 
-**Framework**: Jest + React Testing Library following Next.js 15 best practices  
-**Coverage**: 27+ tests across 5 test suites  
-**Approach**: Accessibility-first testing with realistic user interactions
+**End-to-End Tests (Cypress)**:
+
+- **Homepage**: Navigation, responsive behavior, section scrolling
+- **Contact Form**: Complete user workflows, validation, API integration
+- **Projects**: Content display, external links, responsive design
+- **Accessibility**: ARIA labels, keyboard navigation, semantic HTML
+- **Maintenance Mode**: Feature flag behavior, styling consistency
+
+**Coverage**: 27+ unit tests + 20+ E2E test cases  
+**Approach**: Accessibility-first testing with realistic user interactions  
+**CI/CD**: Automated testing in GitHub Actions with artifact uploads
 
 See [`docs/testing.md`](docs/testing.md) for detailed testing documentation.
 

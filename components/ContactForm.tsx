@@ -51,10 +51,14 @@ export default function ContactForm() {
         result.error.errors.forEach((err) => {
           newErrors[err.path[0] as keyof FormValues] = err.message;
         });
+
         setErrors(newErrors);
-        setFormStatus("error");
+        setFormStatus("idle");
         return;
       }
+
+      // Clear errors if validation passes
+      setErrors({});
 
       const response = await fetch("/api/contact", {
         method: "POST",

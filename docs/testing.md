@@ -1,16 +1,25 @@
 # Testing Setup
 
-This project includes a comprehensive two-tier testing strategy with Jest for unit testing and Cypress for end-to-end testing, configured according to [Next.js 15 testing documentation](https://nextjs.org/docs/app/guides/testing/jest) and [Cypress best practices](https://nextjs.org/docs/app/guides/testing/cypress).
+This project implements a comprehensive three-tier testing strategy following the testing pyramid:
+
+1. **Unit Tests** - Individual functions and utilities (Jest)
+2. **Integration Tests** - Components with user interactions (Jest + React Testing Library)
+3. **End-to-End Tests** - Complete user workflows (Cypress)
+
+Configured according to [Next.js 15 testing documentation](https://nextjs.org/docs/app/guides/testing/jest) and [Cypress best practices](https://nextjs.org/docs/app/guides/testing/cypress).
 
 ## Test Files
 
-### Unit Tests (Jest + React Testing Library)
+### Unit Tests (Jest)
 
-- `__tests__/ContactForm.test.tsx` - Tests for the contact form component
-- `__tests__/Navbar.test.tsx` - Tests for the navigation component
-- `__tests__/projects.test.ts` - Tests for the projects data structure
-- `__tests__/validation.test.ts` - Tests for validation utility functions
-- `__tests__/api-contact.test.ts` - Basic API route testing (complex mocking deferred to integration tests)
+- `__tests__/validation.test.ts` - Individual utility functions (email validation, string formatting)
+- `__tests__/projects.test.ts` - Data structure validation and type checking
+
+### Integration Tests (Jest + React Testing Library)
+
+- `__tests__/ContactForm.test.tsx` - Form component + validation + user interaction flows
+- `__tests__/Navbar.test.tsx` - Navigation component + user interactions + state management
+- `__tests__/api-contact.test.ts` - API routes + request/response handling + environment validation
 
 ### End-to-End Tests (Cypress)
 
@@ -85,21 +94,23 @@ pnpm test:all
 
 ## What's Tested
 
-### Unit Tests (Jest + RTL)
+### Unit Tests (Jest)
 
-**Components**:
+**Individual Functions & Utilities**:
 
-- **ContactForm**: Form validation, submission states, error handling
-- **Navbar**: Navigation links, mobile menu toggle, scroll behavior
-
-**Data & Utils**:
-
-- **Projects Data**: Data structure validation, required fields
 - **Validation Utils**: Email validation, required field checks, string formatting
+- **Projects Data**: Data structure validation, required fields, type checking
 
-**API Routes**:
+### Integration Tests (Jest + RTL)
 
-- **Contact API**: Email sending, error handling, environment validation
+**Component Integration**:
+
+- **ContactForm**: Form component + validation + state management + user interactions
+- **Navbar**: Navigation component + mobile menu + user interactions
+
+**API Integration**:
+
+- **Contact API**: API routes + email sending + error handling + environment validation
 
 ### End-to-End Tests (Cypress)
 
@@ -150,13 +161,23 @@ This project uses the complete React Testing Library ecosystem for component tes
 
 ## Coverage
 
-Tests cover the core functionality including:
+### Test Coverage Summary
 
-- Form validation and submission
-- Component rendering and interactions
-- Data structure validation
-- API error handling
+**27 Unit/Integration Tests (Jest + RTL)**:
+
+- Individual utility functions and data validation
+- Component behavior with user interactions
+- API routes with request/response cycles
+- Form validation and submission workflows
 - Environment configuration checks
+
+**30 End-to-End Tests (Cypress)**:
+
+- Complete user workflows across all features
+- Cross-component integration scenarios
+- Real browser behavior and responsive design
+- Accessibility compliance and keyboard navigation
+- API integration with realistic network conditions
 
 ## Alignment with Next.js 15 Documentation
 

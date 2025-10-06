@@ -78,12 +78,25 @@ This portfolio demonstrates modern web development practices and architecture de
 
 ## 🧪 Testing
 
-This project includes a comprehensive two-tier testing strategy to ensure code quality and reliability:
+This project implements a comprehensive three-tier testing strategy following the testing pyramid:
 
-### Unit Tests (Jest + React Testing Library)
+### Unit Tests (Jest)
+
+**What:** Individual functions and utilities in isolation
+**Examples:** Email validation, data transformations, utility functions
+
+### Integration Tests (Jest + React Testing Library)
+
+**What:** Components working together with user interactions and state management
+**Examples:** Form validation flows, component interactions, API route behavior
+
+### End-to-End Tests (Cypress)
+
+**What:** Complete user workflows in a real browser environment
+**Examples:** Full form submission, navigation flows, cross-component interactions
 
 ```bash
-# Run all unit tests
+# Run unit + integration tests
 pnpm test
 
 # Run tests in watch mode
@@ -111,12 +124,16 @@ pnpm test:all
 
 ### Test Coverage
 
-**Unit Tests (Jest + RTL)**:
+**Unit Tests (Jest)**:
 
-- **Components**: Form validation, navigation behavior, user interactions
-- **Utilities**: Email validation, form helpers, data processing
-- **API Routes**: Contact form submission, error handling
+- **Utilities**: Email validation, data transformations, utility functions
 - **Data Structures**: Project data validation and type safety
+
+**Integration Tests (Jest + RTL)**:
+
+- **Components**: Form validation flows, navigation behavior, user interactions
+- **API Routes**: Contact form submission, error handling, request/response cycles
+- **State Management**: Component state changes and side effects
 
 **End-to-End Tests (Cypress)**:
 
@@ -126,9 +143,10 @@ pnpm test:all
 - **Accessibility**: ARIA labels, keyboard navigation, semantic HTML
 - **Maintenance Mode**: Feature flag behavior, styling consistency
 
-**Coverage**: 27+ unit tests + 20+ E2E test cases  
-**Approach**: Accessibility-first testing with realistic user interactions  
-**CI/CD**: Automated testing in GitHub Actions with artifact uploads
+**Coverage**: 27 unit/integration tests + 30 E2E test cases  
+**Approach**: Testing pyramid with unit → integration → E2E layers  
+**Quality**: Accessibility-first testing with realistic user interactions  
+**CI/CD**: Automated testing in GitHub Actions with parallel execution
 
 See [`docs/testing.md`](docs/testing.md) for detailed testing documentation.
 

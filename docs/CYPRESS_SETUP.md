@@ -48,10 +48,8 @@
 {
   "cypress:open": "cypress open",
   "cypress:run": "cypress run",
-  "cypress:run:headless": "cypress run --headless",
-  "test:e2e": "cypress run",
   "test:e2e:dev": "start-server-and-test dev http://localhost:3000 cypress:open",
-  "test:all": "npm run test && npm run test:e2e"
+  "test:all": "npm run test && npm run cypress:run"
 }
 ```
 
@@ -102,8 +100,8 @@ pnpm test:all      # Runs all tests (unit + E2E)
 
 ### Test Coverage
 
-- **27 unit tests** covering components, utilities, and API routes
-- **20+ E2E test cases** covering user workflows and integration
+- **27 unit/integration tests** covering individual functions, components, and API routes
+- **30 E2E test cases** covering complete user workflows and cross-component integration
 - **Full CI pipeline** with automated testing and artifact collection
 
 ## 🔧 Technical Implementation

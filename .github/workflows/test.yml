@@ -61,12 +61,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Verify Cypress installation
-        run: npx cypress verify
-
-      - name: Install Cypress binary if needed
-        run: npx cypress install
-        if: failure()
+      - name: Clear Cypress cache and install binary
+        run: |
+          npx cypress cache clear
+          npx cypress install
+          npx cypress verify
 
       - name: Build application
         run: pnpm build

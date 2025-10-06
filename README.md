@@ -25,130 +25,48 @@ A modern, responsive portfolio website built with Next.js 15, showcasing profess
 ## 📦 Project Structure
 
 ```
-├── __tests__/             # Unit test files with Jest + RTL
-│   ├── ContactForm.test.tsx  # Form validation & submission tests
-│   ├── Navbar.test.tsx       # Navigation component tests
-│   ├── projects.test.ts      # Data validation tests
-│   ├── validation.test.ts    # Utility function tests
-│   └── api-contact.test.ts   # API route tests
-├── cypress/               # E2E test files with Cypress
-│   ├── e2e/               # End-to-end test specifications
-│   │   ├── homepage.cy.ts       # Main page navigation tests
-│   │   ├── contact-form.cy.ts   # Contact form E2E tests
-│   │   ├── projects.cy.ts       # Projects section tests
-│   │   ├── accessibility.cy.ts  # Accessibility & SEO tests
-│   │   └── maintenance.cy.ts    # Maintenance mode tests
-│   ├── support/           # Cypress support files
-│   └── tsconfig.json      # TypeScript config for Cypress
-├── app/                    # Next.js App Router pages
-│   ├── api/               # API routes
-│   │   └── contact/       # Contact form API endpoint
-│   ├── assets/            # Static assets and images
-│   ├── maintenance/       # Maintenance mode page
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout component
+├── app/                    # Next.js App Router
+│   ├── api/contact/        # Contact form API endpoint
+│   ├── maintenance/        # Maintenance mode page
 │   └── page.tsx           # Home page
-├── components/            # Reusable React components
-│   ├── AboutMe.tsx        # About section component
-│   ├── ContactForm.tsx    # Contact form with validation
-│   ├── Footer.tsx         # Site footer
+├── components/            # React components
+│   ├── ContactForm.tsx    # Form with validation
 │   ├── Navbar.tsx         # Navigation header
-│   └── Projects.tsx       # Projects showcase
-├── config/                # Configuration files
-│   └── site.ts            # Site-wide configuration
-├── docs/                  # Documentation
-│   └── testing.md         # Testing setup and guidelines
-├── hooks/                 # Custom React hooks
-│   └── use-mobile.tsx     # Mobile device detection
-├── jest.config.ts         # Jest configuration
-├── jest.setup.ts          # Test environment setup
-└── public/                # Static files
+│   └── Projects.tsx       # Project showcase
+├── __tests__/             # Unit & integration tests
+├── cypress/e2e/           # End-to-end tests
+├── config/                # Site configuration
+└── docs/                  # Documentation
 ```
 
-## 💡 Technical Implementation
+## 💡 Technical Highlights
 
-This portfolio demonstrates modern web development practices and architecture decisions:
-
-- **Performance**: Optimized build with Next.js 15 and App Router for fast loading
-- **Scalability**: Component-based architecture with TypeScript for maintainability
-- **User Experience**: Responsive design with CSS Modules for scoped styling
+- **Performance**: Next.js 15 with App Router for optimal loading speeds
+- **Architecture**: Component-based TypeScript codebase for maintainability
+- **Testing**: 57 comprehensive tests (unit, integration, E2E) with CI/CD pipeline
 - **Infrastructure**: Serverless deployment with integrated email functionality
-- **Quality Assurance**: Comprehensive testing with 27+ unit tests + E2E test suite covering all user workflows
-- **Developer Experience**: ESLint configuration, testing framework, and development tooling
+- **Quality**: ESLint, Prettier, and automated testing ensure code reliability
 
 ## 🧪 Testing
 
-This project implements a comprehensive three-tier testing strategy following the testing pyramid:
+Comprehensive test coverage with **57 total tests** across three tiers:
 
-### Unit Tests (Jest)
-
-**What:** Individual functions and utilities in isolation
-**Examples:** Email validation, data transformations, utility functions
-
-### Integration Tests (Jest + React Testing Library)
-
-**What:** Components working together with user interactions and state management
-**Examples:** Form validation flows, component interactions, API route behavior
-
-### End-to-End Tests (Cypress)
-
-**What:** Complete user workflows in a real browser environment
-**Examples:** Full form submission, navigation flows, cross-component interactions
+- **Unit Tests**: Jest for individual functions and utilities
+- **Integration Tests**: Jest + React Testing Library for component interactions
+- **End-to-End Tests**: Cypress for complete user workflows in real browsers
 
 ```bash
-# Run unit + integration tests
-pnpm test
-
-# Run tests in watch mode
-pnpm test:watch
-
-# Generate coverage report
-pnpm test:coverage
-```
-
-### End-to-End Tests (Cypress)
-
-```bash
-# Open Cypress Test Runner (interactive)
-pnpm cypress:open
-
-# Run E2E tests headlessly
-pnpm cypress:run
-
-# Run dev server and E2E tests together
-pnpm test:e2e:dev
-
-# Run all tests (unit + E2E)
+# Run all tests
 pnpm test:all
+
+# Development testing
+pnpm test              # Unit + integration tests
+pnpm cypress:open      # Interactive E2E testing
 ```
 
-### Test Coverage
+**Key Features**: Accessibility-first testing, API integration validation, responsive design verification, and automated CI/CD pipeline with GitHub Actions.
 
-**Unit Tests (Jest)**:
-
-- **Utilities**: Email validation, data transformations, utility functions
-- **Data Structures**: Project data validation and type safety
-
-**Integration Tests (Jest + RTL)**:
-
-- **Components**: Form validation flows, navigation behavior, user interactions
-- **API Routes**: Contact form submission, error handling, request/response cycles
-- **State Management**: Component state changes and side effects
-
-**End-to-End Tests (Cypress)**:
-
-- **Homepage**: Navigation, responsive behavior, section scrolling
-- **Contact Form**: Complete user workflows, validation, API integration
-- **Projects**: Content display, external links, responsive design
-- **Accessibility**: ARIA labels, keyboard navigation, semantic HTML
-- **Maintenance Mode**: Feature flag behavior, styling consistency
-
-**Coverage**: 27 unit/integration tests + 30 E2E test cases  
-**Approach**: Testing pyramid with unit → integration → E2E layers  
-**Quality**: Accessibility-first testing with realistic user interactions  
-**CI/CD**: Automated testing in GitHub Actions with parallel execution
-
-See [`docs/testing.md`](docs/testing.md) for detailed testing documentation.
+See [`docs/TESTING.md`](docs/TESTING.md) for complete testing documentation.
 
 ## License
 

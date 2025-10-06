@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Next.js build output
+.next/
+out/
+
+# Coverage
+coverage/
+
+# Cypress
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+
+# Environment files
+.env.local
+.env.production.local
+.env.development.local
+
+# Build artifacts
+*.tsbuildinfo
+
+# OS generated files
+.DS_Store

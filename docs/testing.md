@@ -254,3 +254,75 @@ Cypress tests focus on complete user workflows and integration points that unit 
 **Error Scenarios**: Tests both success and failure paths comprehensively
 
 This dual-testing approach provides confidence in both individual component behavior (Jest) and complete user experiences (Cypress).
+
+## Cypress Implementation Details
+
+### Core Cypress Setup
+
+- **Cypress**: v15.3.0 with full TypeScript support
+- **Configuration**: `cypress.config.ts` with E2E testing configured
+- **Support Files**: Custom commands and global setup in `cypress/support/`
+- **TypeScript**: Dedicated `cypress/tsconfig.json` for Cypress-specific configuration
+
+### Test Suites (5 files, 30+ test cases)
+
+1. **Homepage Tests** (`cypress/e2e/homepage.cy.ts`)
+   - Navigation functionality and mobile responsiveness
+   - Section scrolling and URL hash updates
+   - Mobile menu toggle behavior
+
+2. **Contact Form Tests** (`cypress/e2e/contact-form.cy.ts`)
+   - Complete form validation workflow
+   - API integration with request/response intercepting
+   - Loading states and error handling
+   - Form field clearing after successful submission
+
+3. **Projects Tests** (`cypress/e2e/projects.cy.ts`)
+   - Content display and structure validation
+   - External link behavior (target="\_blank", rel attributes)
+   - Responsive design across viewports
+   - Proper heading hierarchy
+
+4. **Accessibility Tests** (`cypress/e2e/accessibility.cy.ts`)
+   - ARIA labels and semantic HTML structure
+   - Keyboard navigation and focus management
+   - Form label associations
+   - Console error monitoring
+
+5. **Maintenance Mode Tests** (`cypress/e2e/maintenance.cy.ts`)
+   - Maintenance page display and styling
+   - Responsive behavior validation
+
+### CI/CD Integration
+
+- **GitHub Actions**: `.github/workflows/test.yml` with both unit and E2E testing
+- **Artifact Upload**: Videos and screenshots on test failures
+- **Parallel Jobs**: Unit tests and E2E tests run in separate CI jobs
+
+### Development Workflow
+
+```bash
+# Development workflow
+pnpm test:e2e:dev  # Starts dev server + opens Cypress
+
+# CI/Production
+pnpm test:all      # Runs all tests (unit + E2E)
+```
+
+### Key Features Implemented
+
+- ✅ TypeScript support throughout
+- ✅ API request interception for consistent testing
+- ✅ Mobile/responsive testing across viewports
+- ✅ Accessibility-first test patterns
+- ✅ Real form submission workflows
+- ✅ Error state and loading state validation
+- ✅ Cross-browser compatibility (Chrome/Electron)
+
+### Test Coverage Summary
+
+- **27 unit/integration tests** covering individual functions, components, and API routes
+- **30 E2E test cases** covering complete user workflows and cross-component integration
+- **Full CI pipeline** with automated testing and artifact collection
+
+This implementation provides comprehensive coverage of both unit-level functionality and end-to-end user experience, ensuring high confidence in the application's reliability.

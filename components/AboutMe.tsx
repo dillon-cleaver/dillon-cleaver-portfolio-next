@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import styles from "./AboutMe.module.css";
-import profilePic from "@/assets/dillon-sept-23.jpg";
-import profilePic2 from "@/assets/dillon-sept-23-2.jpg";
-import { useState } from "react";
+import Image from 'next/image';
+import styles from './AboutMe.module.css';
+import profilePic from '@/assets/dillon-sept-23.jpg';
+import profilePic2 from '@/assets/dillon-sept-23-2.jpg';
+import { useState } from 'react';
 
 export default function AboutMe() {
   const [isHovered, setIsHovered] = useState(false);
@@ -14,7 +14,7 @@ export default function AboutMe() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
-            <h1 className={styles.title}>Frontend Developer</h1>
+            <h1 className={styles.title}>Frontend Engineer</h1>
             <p>
               Hi, I&apos;m Dillon! I&apos;m a frontend-focused software engineer
               with over three years of experience building engaging, intuitive,
@@ -61,7 +61,7 @@ export default function AboutMe() {
                 alt="Dillon Cleaver profile picture"
                 width={500}
                 height={300}
-                className={`${styles.image} ${isHovered ? styles.fadeOut : ""}`}
+                className={`${styles.image} ${isHovered ? styles.fadeOut : ''}`}
               />
               <Image
                 src={profilePic2}
@@ -69,7 +69,7 @@ export default function AboutMe() {
                 width={500}
                 height={300}
                 className={`${styles.image} ${styles.secondImage} ${
-                  isHovered ? styles.fadeIn : ""
+                  isHovered ? styles.fadeIn : ''
                 }`}
               />
             </div>

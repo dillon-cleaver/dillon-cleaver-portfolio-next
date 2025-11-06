@@ -24,6 +24,65 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Famēlia',
+    sections: [
+      {
+        heading: 'Introduction',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'Famēlia is a health-tech mobile application that helps families manage multiple dietary needs by instantly customizing recipes. The app features AI-powered meal planning, a dietitian portal for professional collaboration, and immersive step-by-step cooking classes.',
+          },
+          {
+            subheading: 'My Role',
+            content:
+              'Frontend React Native developer and product/design consultant, contributing to:',
+            list: [
+              'Cross-platform mobile development with React Native and TypeScript',
+              'UI/UX design collaboration and implementation',
+              'Product strategy and feature planning',
+              'Design system development and component architecture',
+            ],
+          },
+          {
+            subheading: 'Technologies Used',
+            list: [
+              'React Native ✓',
+              'TypeScript ✓',
+              'AI Integration (recipe customization)',
+            ],
+          },
+          {
+            subheading: 'Links',
+            links: [
+              {
+                text: 'Famēlia Website',
+                url: 'https://famelia.app/',
+                icon: 'code',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Key Features',
+        content: [
+          {
+            subheading: 'Core Functionality',
+            list: [
+              'AI-powered recipe customization for dietary restrictions',
+              'Dietitian portal with client management and meal plan tracking',
+              'Interactive cooking classes with step-by-step guidance',
+              'Real-time progress tracking and analytics',
+              'Integrated scheduling and communication tools',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: 'NerdWord',
     sections: [
       {

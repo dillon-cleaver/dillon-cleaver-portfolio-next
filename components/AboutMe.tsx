@@ -14,34 +14,39 @@ export default function AboutMe() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.text}>
-            <h1 className={styles.title}>Frontend Engineer</h1>
+            <h1 className={styles.title}>Full Stack Engineer</h1>
             <p>
-              Hi, I&apos;m Dillon! I&apos;m a frontend-focused software engineer
-              with over three years of experience building engaging, intuitive,
-              and accessible cross-platform applications for iOS, Android, and
-              the web
+              Hi, I&apos;m Dillon! I&apos;m a Full Stack Engineer with over four
+              years of experience building high-performing, cross-platform apps
+              for iOS, Android, and web. Frontend-focused and grounded in strong
+              UX/UI principles, I specialize in React, React Native, TypeScript,
+              JavaScript (ES6+), Expo, and Next.js. Skilled with SQL, Supabase,
+              NoSQL, Firebase, and Google Cloud Platform.
             </p>
             <p>
-              I specialize in crafting high-performance user experiences using
-              React Native, React, TypeScript, JavaScript (ES6+), Node.js,
-              Redux, RESTful APIs, Firebase, and the Expo framework. With a
-              strong foundation in UI/UX principles and experience with tools
-              like Figma, I excel at collaborating with designers and project
-              managers within agile environments (using GitHub and CI/CD
-              practices) to bring ideas to life.
+              I&apos;ve contributed to successful App Store and Google Play
+              launches in health-tech and e-commerce, including products
+              featuring AI-powered capabilities through the OpenAI API.
+              Proficient in modern state management with Context API, Redux, and
+              Jotai, and experienced in developing and integrating component
+              libraries such as shadcn/ui. Comfortable across the stack with
+              Node.js, Express, RESTful and GraphQL APIs, and experienced in
+              building CI/CD pipelines and test suites using Jest, React Testing
+              Library, Cypress, and GitHub Actions.
             </p>
             <p>
-              My technical expertise is enriched by a diverse background
-              spanning 15+ years in retail, food service, freelance writing,
-              content creation, and IT support, providing a unique perspective
-              on user needs. Volunteer roles as a counselor, educator,
-              treasurer, and activist further shape my collaborative approach.
+              Design-minded and user-experience-focused, I serve as a strong
+              design and product collaborator — proficient in Figma, translating
+              wireframes into high-fidelity interfaces, and turning polished
+              designs into pixel-perfect, performant code that aligns seamlessly
+              with the intended user experience.
             </p>
             <p>
-              I&apos;m a native English speaker with conversational German
-              (B2.2), an avid traveler, reader, cinema lover, gamer, sports
-              enthusiast, and a dedicated lifelong learner, always seeking new
-              challenges and opportunities for growth ✨
+              I bring over fifteen years of diverse experience spanning software
+              engineering, retail, food service, content creation (writing,
+              video, design), and volunteer work in education and activism.
+              Passionate about travel, reading, film, gaming, sports, and
+              lifelong learning ✨
             </p>
           </div>
           <div className={styles.imageContainer}>

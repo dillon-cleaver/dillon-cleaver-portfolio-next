@@ -2,6 +2,7 @@ import type React from 'react';
 import type { Metadata } from 'next';
 import { Bitter } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 // Initialize the Bitter font
 const bitter = Bitter({
@@ -27,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" scroll-behavior="smooth" className={bitter.variable}>
       <body className={bitter.className}>{children}</body>
+      <Analytics />
     </html>
   );
 }

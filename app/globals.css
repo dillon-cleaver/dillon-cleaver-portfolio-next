@@ -16,7 +16,10 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html,
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   height: 100%;
 }

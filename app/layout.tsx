@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" scroll-behavior="smooth" className={bitter.variable}>
+    <html lang="en" className={bitter.variable}>
       <body className={bitter.className}>{children}</body>
       <Analytics />
     </html>

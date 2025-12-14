@@ -1,11 +1,11 @@
 # Run TypeScript check (excluding test files since they have different type environments)
-echo "🔍 Running TypeScript check..."
+echo "Running TypeScript check..."
 npx tsc --noEmit
 
 # Run ESLint and Prettier on staged files
-echo "🎨 Running ESLint and Prettier on staged files..."
+echo "Running ESLint and Prettier on staged files..."
 npx lint-staged
 
-# Run unit tests (Jest) - this will also type-check the test files
-echo "🧪 Running unit tests..."
-npm run test
+# Run full test suite (Jest + Cypress E2E)
+echo "Running full test suite (unit + e2e)..."
+npm run test:all

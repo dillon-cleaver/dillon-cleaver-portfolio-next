@@ -67,42 +67,42 @@
   top: -50px;
   left: -50px;
   transform: rotate(45deg);
-  clip-path: path("M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50");
+  clip-path: path('M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50');
 }
 
 .decorBottomRight {
   bottom: -50px;
   right: -50px;
   transform: rotate(-45deg);
-  clip-path: path("M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50");
+  clip-path: path('M0,50 C50,0 100,50 150,50 C100,100 50,100 0,50');
 }
 
 .decorTopRight {
   top: -40px;
   right: -40px;
   transform: rotate(30deg);
-  clip-path: path("M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50");
+  clip-path: path('M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50');
 }
 
 .decorBottomLeft {
   bottom: -40px;
   left: -40px;
   transform: rotate(-30deg);
-  clip-path: path("M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50");
+  clip-path: path('M0,50 C30,0 70,0 100,50 C70,100 30,100 0,50');
 }
 
 .decorLeft {
   left: -60px;
   top: 50%;
   transform: translateY(-50%) rotate(90deg);
-  clip-path: path("M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50");
+  clip-path: path('M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50');
 }
 
 .decorRight {
   right: -60px;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
-  clip-path: path("M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50");
+  clip-path: path('M0,50 C20,20 80,20 100,50 C80,80 20,80 0,50');
 }
 
 /* Hover animations */
@@ -210,6 +210,17 @@
   }
 }
 
+/* ── Read-more toggle (mobile only) ─────────────────────────────────────── */
+
+/* Desktop: always show extra text, hide the toggle button */
+.extraText {
+  display: block;
+}
+
+.readMoreBtn {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .about {
     padding: 6rem 1rem 4rem 1rem;
@@ -220,5 +231,47 @@
   .title {
     font-size: 1.75rem;
     text-align: left;
+  }
+
+  /* Show the toggle button */
+  .readMoreBtn {
+    all: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    cursor: pointer;
+    margin: -0.75rem auto 0;
+    background: transparent;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .readMoreBtn:hover,
+  .readMoreBtn:active {
+    background: transparent;
+  }
+
+  .readMoreChevron {
+    transition: transform 0.3s ease;
+  }
+
+  .readMoreChevronOpen {
+    transform: rotate(180deg);
+  }
+
+  /* Collapsed by default on mobile */
+  .extraText {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.3s ease;
+  }
+
+  .extraTextOpen {
+    grid-template-rows: 1fr;
+  }
+
+  .extraTextInner {
+    overflow: hidden;
   }
 }

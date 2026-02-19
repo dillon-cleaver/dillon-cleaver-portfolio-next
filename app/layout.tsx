@@ -1,4 +1,5 @@
 import type React from 'react';
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { Bitter } from 'next/font/google';
 import './globals.css';
@@ -27,10 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={bitter.variable}>
-      <body className={bitter.className}>{children}</body>
-      <Analytics />
+      <body className={bitter.className}>
+        {children}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
+      </body>
     </html>
   );
 }
-
-import './globals.css';

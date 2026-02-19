@@ -19,6 +19,7 @@ export type Section = {
 
 export type Project = {
   title: string;
+  image?: string;
   sections: Section[];
 };
 

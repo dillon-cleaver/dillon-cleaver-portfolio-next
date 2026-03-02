@@ -2,6 +2,9 @@
 .projects {
   padding: var(--section-padding);
   background-color: #f8f9fa;
+  box-shadow:
+    inset 0 8px 12px -6px rgba(0, 0, 0, 0.08),
+    inset 0 -8px 12px -6px rgba(0, 0, 0, 0.08);
 }
 
 .container {
@@ -22,7 +25,10 @@
 
 .track {
   display: flex;
-  transition: transform 0.4s ease;
+  align-items: flex-start;
+  transition:
+    transform 0.4s ease,
+    height 0.4s ease;
   will-change: transform;
 }
 
@@ -36,7 +42,6 @@
   padding: 2.5rem 2rem;
   align-items: start;
   box-sizing: border-box;
-  min-height: 480px;
 }
 
 /* ── Image pane ──────────────────────────────────────────────────────────── */
@@ -44,17 +49,38 @@
   position: relative;
 }
 
+.imageLink {
+  display: block;
+  text-decoration: none;
+  border-radius: 24px;
+  border: none;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  transition: var(--transition);
+  line-height: 0;
+}
+
+.imageLink:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.imageLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 .projectImage {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 .imagePlaceholder {
   aspect-ratio: 4 / 3;
   background: var(--color-accent-light);
-  border-radius: 8px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,12 +128,13 @@
   padding: 0.4rem 0.9rem;
   background-color: var(--color-accent-light);
   color: var(--color-dark);
-  border-radius: 4px;
+  border-radius: 20px;
   font-weight: 500;
   font-size: 0.875rem;
   transition: var(--transition);
   line-height: 1;
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .link:hover {
@@ -222,23 +249,20 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  border: 2px solid var(--color-accent-light);
-  background: white;
-  color: var(--color-dark);
+  background: var(--color-accent);
+  color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
   transition: var(--transition);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
 }
 
 .arrowBtn:hover:not(:disabled) {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: white;
+  background: var(--color-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
 .arrowBtn:disabled {
@@ -287,9 +311,8 @@
 
   .slide {
     grid-template-columns: 1fr;
-    padding: 1.5rem 1rem 4rem; /* bottom padding makes room for arrows below image */
-    gap: 1.25rem;
-    min-height: auto;
+    padding: 1.5rem 1rem 2rem;
+    gap: 1.5rem;
   }
 
   .icon {

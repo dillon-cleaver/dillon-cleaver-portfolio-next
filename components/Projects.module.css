@@ -25,7 +25,10 @@
 
 .track {
   display: flex;
-  transition: transform 0.4s ease;
+  align-items: flex-start;
+  transition:
+    transform 0.4s ease,
+    height 0.4s ease;
   will-change: transform;
 }
 
@@ -39,7 +42,6 @@
   padding: 2.5rem 2rem;
   align-items: start;
   box-sizing: border-box;
-  min-height: 480px;
 }
 
 /* ── Image pane ──────────────────────────────────────────────────────────── */
@@ -54,8 +56,8 @@
   border: none;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
-  background-color: #fff;
   transition: var(--transition);
+  line-height: 0;
 }
 
 .imageLink:hover {
@@ -69,6 +71,7 @@
 }
 
 .projectImage {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -308,9 +311,8 @@
 
   .slide {
     grid-template-columns: 1fr;
-    padding: 1.5rem 1rem 4rem; /* bottom padding makes room for arrows below image */
-    gap: 1.25rem;
-    min-height: auto;
+    padding: 1.5rem 1rem 2rem;
+    gap: 1.5rem;
   }
 
   .icon {

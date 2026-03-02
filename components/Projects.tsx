@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styles from './Projects.module.css';
 import ProjectsIcon from './icons/ProjectsIcon';
 import DesignIcon from './icons/DesignIcon';
@@ -78,7 +78,27 @@ function CollapsibleSection({ section }: { section: Section }) {
 
 export default function Projects() {
   const [index, setIndex] = useState(0);
+  const [trackHeight, setTrackHeight] = useState<number | undefined>(undefined);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
   const touchStartX = useRef<number | null>(null);
+
+  useEffect(() => {
+    const slide = slideRefs.current[index];
+    if (slide) {
+      setTrackHeight(slide.scrollHeight);
+    }
+  }, [index]);
+
+  useEffect(() => {
+    const slide = slideRefs.current[index];
+    if (!slide) return;
+
+    const observer = new ResizeObserver(() => {
+      setTrackHeight(slide.scrollHeight);
+    });
+    observer.observe(slide);
+    return () => observer.disconnect();
+  }, [index]);
 
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(projects.length - 1, i + 1));
@@ -125,7 +145,10 @@ export default function Projects() {
           {/* Slides track */}
           <div
             className={styles.track}
-            style={{ transform: `translateX(-${index * 100}%)` }}
+            style={{
+              transform: `translateX(-${index * 100}%)`,
+              height: trackHeight ? `${trackHeight}px` : undefined,
+            }}
           >
             {projects.map((project, slideIndex) => {
               // Collect all links from all sections
@@ -185,7 +208,13 @@ export default function Projects() {
               );
 
               return (
-                <div key={slideIndex} className={styles.slide}>
+                <div
+                  key={slideIndex}
+                  ref={(el) => {
+                    slideRefs.current[slideIndex] = el;
+                  }}
+                  className={styles.slide}
+                >
                   {/* Left: image pane */}
                   <div className={styles.imagePane}>
                     {primaryLink ? (

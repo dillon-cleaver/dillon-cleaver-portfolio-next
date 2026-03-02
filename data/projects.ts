@@ -133,13 +133,13 @@ export const projects: Project[] = [
             subheading: 'Links',
             links: [
               {
-                text: 'Famēlia Website',
-                url: 'https://famelia.app/',
+                text: 'App Store',
+                url: 'https://apps.apple.com/us/app/fam%C4%93lia/id6755497426',
                 icon: 'code',
               },
               {
-                text: 'App Store',
-                url: 'https://apps.apple.com/us/app/fam%C4%93lia/id6755497426',
+                text: 'Famēlia Website',
+                url: 'https://famelia.app/',
                 icon: 'project',
               },
             ],

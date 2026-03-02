@@ -66,7 +66,8 @@ describe('Projects Section', () => {
   });
 
   it('should display the NerdWord project', () => {
-    // NerdWord is the second project — navigate to it via the next arrow
+    // NerdWord is the third project — navigate to it via the next arrow
+    cy.get('button[aria-label="Next project"]').click();
     cy.get('button[aria-label="Next project"]').click();
     cy.get('#projects').within(() => {
       cy.contains('h3', 'NerdWord').should('be.visible');

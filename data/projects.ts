@@ -52,32 +52,38 @@ export const projects: Project[] = [
             subheading: 'Core Features',
             list: [
               'Markdown-rich chat interface with syntax highlighting and streaming responses',
-              'Multi-file uploads with per-message selection and visual file chips',
-              'Client-side extraction for PDFs, Word, Excel, PowerPoint, CSV, and text files',
-              'Persistent conversation history and file library stored in IndexedDB',
-              'Keyboard shortcuts, skip links, and ARIA live regions for accessible navigation',
+              "Tool calling with Anthropic's built-in web search and a custom URL fetch tool, surfaced to the user via real-time SSE status indicators",
+              'Multi-file uploads (click or drag-and-drop) with per-message selection and visual file chips',
+              "Intelligent file processing: small PDFs sent as native document blocks, large PDFs (100+ pages or 100KB+) have text extracted, images sent as base64 for Claude's vision, Office docs parsed client-side",
+              'Persistent conversation history and file library stored entirely in IndexedDB — nothing stored server-side',
+              'Dark/light theme toggle with persistent preference',
+              'Token usage display showing input/output token counts per response',
+              'Gen X/90s personality system prompt — bold, direct, slightly edgy but warm, inspired by the Sega Genesis era',
+              'Full keyboard navigation with roving tabindex, skip links, ARIA live regions, and prefers-reduced-motion support',
             ],
           },
           {
             subheading: 'Model & Tooling',
             content:
-              'Chatbot is intentionally built around Claude Haiku for most conversations to keep latency low and API costs predictable. It exercises Anthropic tool use via both the web search tool and a URL fetch tool, and the entire project was developed almost entirely inside Claude Code as a real-world test bed for AI-assisted full-stack development.',
+              "Chatbot is intentionally built around Claude Haiku for most conversations to keep latency low and API costs predictable. The server implements a tool execution loop (capped at 10 iterations) that handles both Anthropic's built-in web_search server tool and a custom fetch_url tool for retrieving and extracting page content. Tool activity is detected in real time via stream events and relayed to the client as SSE tool_use/tool_result events so users see exactly what the model is doing. The entire project was developed almost entirely inside Claude Code as a real-world test bed for AI-assisted full-stack development.",
           },
           {
             subheading: 'Technologies Used',
             list: [
-              'React 19 ✓ (Vite + TypeScript frontend)',
+              'React 19 ✓ (Vite 7 + TypeScript frontend)',
               'Express 5 ✓ (stateless Claude proxy backend)',
-              'IndexedDB ✓ via idb for local persistence',
-              'pdfjs-dist, mammoth, xlsx, papaparse ✓ for file parsing',
-              'CSS Modules ✓ with brutalist-inspired design system',
-              'Anthropic SDK ✓ for Claude API integration',
+              'React Router 7 ✓ (conversation-based client-side routing)',
+              'IndexedDB ✓ via idb for local persistence of conversations, messages, and file blobs',
+              'pdfjs-dist, mammoth, xlsx, jszip, papaparse ✓ for client-side file parsing',
+              'CSS Modules ✓ with brutalist-inspired design system (Fraunces + Roboto typography)',
+              'Anthropic SDK ✓ for Claude API integration with streaming and tool use',
+              'lucide-react ✓ for tree-shakeable icons',
             ],
           },
           {
             subheading: 'Privacy & Data',
             content:
-              'Instead of standing up a separate database, Chatbot uses IndexedDB in the browser as its only persistence layer so conversations, messages, and file blobs stay on the user’s device by default. Anthropic only ever sees the specific message content and extracted file snippets sent in each request, and those are handled under Anthropic’s standard API data policies — the app itself never stores that data on any backend.',
+              "Instead of standing up a separate database, Chatbot uses IndexedDB in the browser as its only persistence layer so conversations, messages, and file blobs stay on the user's device by default. The Express server is completely stateless — no database, no session store, no file storage. Anthropic only ever sees the specific message content and extracted file snippets sent in each request, and those are handled under Anthropic's standard API data policies — the app itself never stores that data on any backend.",
           },
           {
             subheading: 'Links',
@@ -93,6 +99,56 @@ export const projects: Project[] = [
                 icon: 'github',
               },
             ],
+          },
+        ],
+      },
+      {
+        heading: 'Spotlight',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'The most interesting architectural challenge was deploying a pnpm monorepo as a single Railway service — and the tool calling pipeline that gives the chatbot real-time access to the web.',
+          },
+          {
+            subheading: 'Single-Service Deployment',
+            content:
+              "Getting the monorepo deployed on Railway required iterating through several failed approaches before landing on the right one. Vite's preview server wouldn't bind correctly to Railway's proxy. A minimal Node.js HTTP server returned 502s despite working locally. Railway's own Caddy-based template added unnecessary complexity. The solution was straightforward: have Express build and serve the client's static files alongside the API. One service, same-origin requests, no CORS, and Railway's watch patterns trigger redeploys when either client or server code changes.",
+          },
+          {
+            subheading: 'Tool Calling Pipeline',
+            content:
+              "The server implements a streaming tool execution loop that handles two kinds of tools differently. Anthropic's built-in web_search tool executes server-side during the API stream — the server detects search activity from stream events and relays status to the client in real time. The custom fetch_url tool runs locally on the server, fetching a URL, stripping HTML, and truncating to ~10,000 characters. Both tool types surface as SSE events (tool_use and tool_result) so the UI can show exactly what the model is doing at each step. The loop is capped at 10 iterations to prevent runaway tool chains.",
+          },
+          {
+            subheading: 'File Processing Strategy',
+            content:
+              "All file processing happens client-side before anything leaves the browser. PDFs get special treatment: small files are sent as native Anthropic document blocks (which Claude can read directly), while large PDFs (100+ pages or 100KB+) have their text extracted via pdfjs-dist to stay within API limits. Images are base64-encoded for Claude's vision capabilities. Office formats (Word via Mammoth, Excel via xlsx, PowerPoint via jszip XML parsing) are all converted to text or markdown tables in the browser. This keeps the server completely stateless and means files never touch the backend.",
+          },
+        ],
+      },
+      {
+        heading: 'Lessons Learned',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'Building Chatbot reinforced that the simplest deployment architecture usually wins, that real-time streaming UX requires careful event design, and that building with AI tools (Claude Code) is a fundamentally different workflow than traditional development.',
+          },
+          {
+            subheading: 'Technical Takeaways',
+            list: [
+              'Express 5\'s path-to-regexp v8 migration is a real breaking change — wildcard routes need named parameters ("/{*path}" not "*"), which caused initial deployment failures',
+              "Vite's import.meta.env is baked in at build time, not runtime — learned this the hard way when trying to configure API URLs via Railway environment variables after deploy",
+              'Server-Sent Events are a better fit than WebSockets for one-directional streaming (AI responses, tool status) — simpler to implement, automatic reconnection, and no need for a persistent bidirectional connection',
+              'Pending state in modals (file selection changes only apply on close) prevents jarring background updates while the user is browsing — a small UX decision that significantly improved the feel of the app',
+              'IndexedDB as the sole persistence layer eliminates an entire class of backend complexity (auth, sessions, database migrations) at the cost of no cross-device sync — the right tradeoff for a personal tool',
+            ],
+          },
+          {
+            subheading: 'Building with Claude Code',
+            content:
+              'Chatbot was developed almost entirely inside Claude Code, making it a real-world stress test for AI-assisted full-stack development. The monorepo structure, streaming SSE integration, tool calling pipeline, and IndexedDB persistence layer were all built through conversational iteration. The experience validated that Claude Code is most effective when you bring clear architectural opinions and let it handle implementation details — it excels at wiring up plumbing (SSE event handling, IndexedDB schemas, file processing pipelines) while the developer focuses on UX decisions and system design.',
           },
         ],
       },

@@ -133,6 +133,9 @@ export default function Projects() {
                 s.content.flatMap((c) => c.links ?? [])
               );
 
+              const primaryLink =
+                allLinks.find((link) => link.icon === 'code') ?? allLinks[0];
+
               // Find the first Overview content item
               const overviewItem = project.sections
                 .flatMap((s) => s.content)
@@ -154,32 +157,50 @@ export default function Projects() {
                 }))
                 .filter((section) => section.content.length > 0);
 
+              const imageContent = (
+                <>
+                  {project.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className={styles.projectImage}
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).style.display =
+                          'none';
+                        (
+                          e.currentTarget.nextElementSibling as HTMLElement
+                        ).style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div
+                    className={styles.imagePlaceholder}
+                    style={{ display: project.image ? 'none' : 'flex' }}
+                    aria-hidden="true"
+                  >
+                    {project.title}
+                  </div>
+                </>
+              );
+
               return (
                 <div key={slideIndex} className={styles.slide}>
                   {/* Left: image pane */}
                   <div className={styles.imagePane}>
-                    {project.image ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className={styles.projectImage}
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).style.display =
-                            'none';
-                          (
-                            e.currentTarget.nextElementSibling as HTMLElement
-                          ).style.display = 'flex';
-                        }}
-                      />
-                    ) : null}
-                    <div
-                      className={styles.imagePlaceholder}
-                      style={{ display: project.image ? 'none' : 'flex' }}
-                      aria-hidden="true"
-                    >
-                      {project.title}
-                    </div>
+                    {primaryLink ? (
+                      <a
+                        href={primaryLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.imageLink}
+                        aria-label={`Open ${project.title}`}
+                      >
+                        {imageContent}
+                      </a>
+                    ) : (
+                      imageContent
+                    )}
                   </div>
 
                   {/* Right: text pane */}
@@ -239,7 +260,20 @@ export default function Projects() {
             disabled={index === 0}
             aria-label="Previous project"
           >
-            ←
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
           </button>
 
           <div className={styles.dots} role="tablist" aria-label="Projects">
@@ -261,7 +295,20 @@ export default function Projects() {
             disabled={index === projects.length - 1}
             aria-label="Next project"
           >
-            →
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </button>
         </div>
       </div>

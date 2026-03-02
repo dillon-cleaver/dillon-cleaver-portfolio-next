@@ -25,7 +25,82 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Chatbot',
+    image: '/chatbot.png',
+    sections: [
+      {
+        heading: 'Introduction',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'Chatbot is a modern, context-aware AI chat application powered by Claude, designed for deep conversations with rich file context. Users can upload documents, spreadsheets, presentations, images, and text, then have natural conversations about their contents with streaming responses and markdown formatting.',
+          },
+          {
+            subheading: 'My Role',
+            content:
+              'I built Chatbot end-to-end as a full-stack TypeScript project, focusing on a brutalist but accessible UI, reliable file processing, and a clean separation between a stateless backend proxy and a fully client-side persistence layer.',
+            list: [
+              'Designed the information architecture and chat UX for long-running, file-centric conversations',
+              'Implemented IndexedDB-based storage for conversations, messages, and file blobs',
+              'Built client-side file processing pipelines for PDFs, Office docs, spreadsheets, images, CSVs, and text',
+              'Integrated Anthropic Claude via a streaming Express proxy with Server-Sent Events',
+              'Set up Railway deployment with a single service serving both API and static frontend',
+            ],
+          },
+          {
+            subheading: 'Core Features',
+            list: [
+              'Markdown-rich chat interface with syntax highlighting and streaming responses',
+              'Multi-file uploads with per-message selection and visual file chips',
+              'Client-side extraction for PDFs, Word, Excel, PowerPoint, CSV, and text files',
+              'Persistent conversation history and file library stored in IndexedDB',
+              'Keyboard shortcuts, skip links, and ARIA live regions for accessible navigation',
+            ],
+          },
+          {
+            subheading: 'Model & Tooling',
+            content:
+              'Chatbot is intentionally built around Claude Haiku for most conversations to keep latency low and API costs predictable. It exercises Anthropic tool use via both the web search tool and a URL fetch tool, and the entire project was developed almost entirely inside Claude Code as a real-world test bed for AI-assisted full-stack development.',
+          },
+          {
+            subheading: 'Technologies Used',
+            list: [
+              'React 19 ✓ (Vite + TypeScript frontend)',
+              'Express 5 ✓ (stateless Claude proxy backend)',
+              'IndexedDB ✓ via idb for local persistence',
+              'pdfjs-dist, mammoth, xlsx, papaparse ✓ for file parsing',
+              'CSS Modules ✓ with brutalist-inspired design system',
+              'Anthropic SDK ✓ for Claude API integration',
+            ],
+          },
+          {
+            subheading: 'Privacy & Data',
+            content:
+              'Instead of standing up a separate database, Chatbot uses IndexedDB in the browser as its only persistence layer so conversations, messages, and file blobs stay on the user’s device by default. Anthropic only ever sees the specific message content and extracted file snippets sent in each request, and those are handled under Anthropic’s standard API data policies — the app itself never stores that data on any backend.',
+          },
+          {
+            subheading: 'Links',
+            links: [
+              {
+                text: 'Live Chatbot',
+                url: 'https://type-type-chatbot.up.railway.app/',
+                icon: 'code',
+              },
+              {
+                text: 'GitHub Repo',
+                url: 'https://github.com/dillon-cleaver/chatbot',
+                icon: 'github',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: 'Famēlia',
+    image: '/famelia.png',
     sections: [
       {
         heading: 'Introduction',
@@ -38,7 +113,7 @@ export const projects: Project[] = [
           {
             subheading: 'My Role',
             content:
-              'Frontend React Native developer and product/design consultant, contributing to:',
+              'Frontend React Native mobile app developer and product/design consultant (no involvement in the marketing website), contributing to:',
             list: [
               'Cross-platform mobile development with React Native and TypeScript',
               'UI/UX design collaboration and implementation',
@@ -61,6 +136,11 @@ export const projects: Project[] = [
                 text: 'Famēlia Website',
                 url: 'https://famelia.app/',
                 icon: 'code',
+              },
+              {
+                text: 'App Store',
+                url: 'https://apps.apple.com/us/app/fam%C4%93lia/id6755497426',
+                icon: 'project',
               },
             ],
           },
@@ -85,6 +165,7 @@ export const projects: Project[] = [
   },
   {
     title: 'NerdWord',
+    image: '/nerdword.png',
     sections: [
       {
         heading: 'Introduction',
@@ -158,11 +239,6 @@ export const projects: Project[] = [
                 text: 'GitHub Repo',
                 url: 'https://github.com/dillon-cleaver/nerd-wordle',
                 icon: 'github',
-              },
-              {
-                text: 'Design System',
-                url: 'https://www.figma.com/design/Sxjpz6GMvd2UjRzfQteCCY/nerd-words-design?node-id=0-1&t=3lBAlGNNTBJtHIsy-1',
-                icon: 'design',
               },
               {
                 text: 'Project Board',
@@ -269,6 +345,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Portfolio Website',
+    image: '/portfolio.png',
     sections: [
       {
         heading: 'Introduction',

@@ -42,11 +42,13 @@
   padding: 2.5rem 2rem;
   align-items: start;
   box-sizing: border-box;
+  min-height: 520px;
 }
 
 /* ── Image pane ──────────────────────────────────────────────────────────── */
 .imagePane {
   position: relative;
+  align-self: center;
 }
 
 .imageLink {
@@ -73,12 +75,12 @@
 .projectImage {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
   object-fit: cover;
 }
 
 .imagePlaceholder {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 4;
   background: var(--color-accent-light);
   border-radius: 16px;
   display: flex;

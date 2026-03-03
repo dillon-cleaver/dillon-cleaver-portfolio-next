@@ -103,6 +103,31 @@ export const projects: Project[] = [
         ],
       },
       {
+        heading: 'Purpose and Goal',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'Chatbot started primarily as a learning exercise — I wanted to get hands-on with the Claude API and understand the full lifecycle of streaming responses, tool calling, and file handling. It doubled as a real-world test bed for building a full-stack app almost entirely inside Claude Code.',
+          },
+          {
+            subheading: 'Background',
+            content:
+              "While the main goal was learning the API, I had a loose idea of building something like a context library — similar in spirit to Google's NotebookLM, where you upload sources and the AI stays grounded in those documents while you chat. In practice, I learned that file attachments are sent with specific messages rather than persisted across an entire conversation the way a dedicated context library might work. That became a valuable lesson in how the Claude API handles context — understanding what the model can see at any given point, how context windows work, and where those boundaries are. The chatbot still benefits from conversation history, so attached files remain accessible through prior messages, but the experience sharpened my understanding of how context and token limits shape the design of AI-powered applications.",
+          },
+          {
+            subheading: 'Initial Designs',
+            content:
+              'The initial design was intentionally opinionated: a brutalist aesthetic with Fraunces and Roboto typography, dark and light theme support, and a Gen X/90s personality baked into the system prompt. The UI prioritized the chat experience — file management and conversation history were secondary surfaces that stayed out of the way until needed.',
+          },
+          {
+            subheading: 'Planning Process',
+            content:
+              'Architecture decisions were driven by two constraints: keep the server stateless (no database, no sessions, no file storage) and keep all user data on-device. That pointed toward IndexedDB for persistence and a monorepo with Express serving both the API proxy and the built frontend. The tool calling pipeline and streaming UX were scoped as stretch goals that ended up becoming core features.',
+          },
+        ],
+      },
+      {
         heading: 'Spotlight',
         content: [
           {
@@ -169,12 +194,22 @@ export const projects: Project[] = [
           {
             subheading: 'My Role',
             content:
-              'Frontend React Native mobile app developer and product/design consultant (no involvement in the marketing website), contributing to:',
+              'I joined Famēlia from October 2025 through January 2026 as a frontend engineer and UX/UI consultant. I was brought on for my frontend engineering and UX/UI experience, with my focus on key user-facing screens — refactoring the home screen, building out and restructuring the kitchen and recipe detail screens, and implementing the live cooking experience.',
             list: [
-              'Cross-platform mobile development with React Native and TypeScript',
-              'UI/UX design collaboration and implementation',
-              'Product strategy and feature planning',
-              'Design system development and component architecture',
+              'Refactored and redesigned the home screen for improved navigation and content hierarchy',
+              'Built out the kitchen screen and recipe detail screen with cleaner component architecture',
+              'Implemented the live cooking screen for step-by-step guided cooking sessions',
+              'Provided UX/UI consulting on interaction patterns, screen flows, and component reusability',
+            ],
+          },
+          {
+            subheading: 'Core Features',
+            list: [
+              'AI-powered recipe customization for dietary restrictions',
+              'Dietitian portal with client management and meal plan tracking',
+              'Interactive cooking classes with step-by-step guidance',
+              'Real-time progress tracking and analytics',
+              'Integrated scheduling and communication tools',
             ],
           },
           {
@@ -203,17 +238,76 @@ export const projects: Project[] = [
         ],
       },
       {
-        heading: 'Key Features',
+        heading: 'Purpose and Goal',
         content: [
           {
-            subheading: 'Core Functionality',
+            subheading: 'Overview',
+            content:
+              'I joined Famēlia as a way to contribute to a local startup while job hunting — an opportunity to apply my React Native and UX/UI experience to a real product preparing for its first public release.',
+          },
+          {
+            subheading: 'Background',
+            content:
+              "Famēlia was pre-launch when I came on board — the app was being prepared for TestFlight and hadn't yet reached users. The founder needed frontend engineering help and UX/UI guidance to get the core mobile experience polished and ready for testers. It was a good fit — I could bring my experience with React Native and component architecture to a codebase that needed structural improvements ahead of its first release.",
+          },
+          {
+            subheading: 'My Focus Areas',
+            content:
+              'The engagement was scoped around the screens that mattered most for launch: the home screen (first impression and daily entry point), the kitchen and recipe detail screens (core app functionality), and the live cooking screen (the flagship interactive experience). Each screen needed both UX refinement and underlying code restructuring.',
+          },
+          {
+            subheading: 'Approach',
+            content:
+              'Rather than proposing a wholesale rewrite, I focused on incremental improvements — refactoring each screen as I worked on it, breaking large components into smaller pieces, and establishing patterns that the team could follow going forward. This kept feature delivery on track while steadily improving the codebase ahead of the TestFlight release.',
+          },
+        ],
+      },
+      {
+        heading: 'Spotlight',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'The most impactful work was restructuring core screens to be more maintainable and performant — turning large, monolithic screen components into composable pieces that were easier to reason about, test, and extend.',
+          },
+          {
+            subheading: 'Home Screen Refactor',
+            content:
+              'The home screen was the first thing users would see after launch, and it needed to surface personalized content — recent recipes, meal plan progress, and dietary profiles — without feeling overwhelming. I restructured it from a single large component into focused, composable sections, improving both readability and the ability to iterate on individual features independently.',
+          },
+          {
+            subheading: 'Kitchen & Recipe Detail',
+            content:
+              'The kitchen screen and recipe detail screen were central to the app experience. I broke down tightly coupled UI into smaller, reusable components with clear data boundaries, making it straightforward to add features like dietary substitutions and cooking mode transitions without cascading changes across the codebase.',
+          },
+          {
+            subheading: 'Live Cooking Experience',
+            content:
+              'The live cooking screen guided users through recipes step by step, with timers, ingredient highlights, and progress tracking. Building this required careful state management to handle mid-recipe navigation, pausing, and resuming without losing context — all while keeping the interface clean and accessible during hands-on cooking.',
+          },
+        ],
+      },
+      {
+        heading: 'Lessons Learned',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'Working on Famēlia as both an engineer and consultant reinforced the value of approaching an unfamiliar codebase with patience, clear communication, and a focus on incremental improvement rather than wholesale rewrites.',
+          },
+          {
+            subheading: 'Technical Takeaways',
             list: [
-              'AI-powered recipe customization for dietary restrictions',
-              'Dietitian portal with client management and meal plan tracking',
-              'Interactive cooking classes with step-by-step guidance',
-              'Real-time progress tracking and analytics',
-              'Integrated scheduling and communication tools',
+              'Joining an existing codebase requires investing time upfront to understand existing patterns and conventions before proposing changes — rushing to refactor without context creates more problems than it solves',
+              'Breaking large screen components into smaller, focused pieces improves both developer experience and AI tooling effectiveness — smaller files are easier to review, test, and reason about',
+              'Working in a codebase with heavy prior AI usage highlighted the importance of consistent code style and clear component boundaries — AI-generated code benefits from the same structural discipline as hand-written code',
+              'Consulting on UX/UI alongside engineering creates a tighter feedback loop — being able to implement design changes directly rather than handing off specs reduced iteration time significantly',
             ],
+          },
+          {
+            subheading: 'Working as a Consultant & Engineer',
+            content:
+              'Joining a pre-launch project as both a UX/UI consultant and frontend engineer meant balancing two priorities: delivering features on a timeline while also improving the underlying code quality. The approach that worked best was making incremental refactors alongside feature work — each screen I touched got restructured into smaller components as part of the implementation, rather than treating refactoring as a separate effort. This kept the project moving toward its TestFlight release while steadily improving maintainability.',
           },
         ],
       },
@@ -414,7 +508,7 @@ export const projects: Project[] = [
           {
             subheading: 'My Role',
             content:
-              "I designed and developed the entire application end-to-end: information architecture, component composition, styling system, API route for email, validation, and deployment configuration. The initial template and file structure were scaffolded with Vercel's v0, then iterated in Cursor using AI-assisted refactors and safe code edits.",
+              'I designed and developed the entire application end-to-end: information architecture, component composition, styling system, API route for email, validation, and deployment configuration. The initial template and file structure were scaffolded using v0 by Vercel, and once the design and structure were finalized, I moved the code to Cursor in early 2025 for AI-assisted refactors and continued development.',
             list: [
               'Component-driven UI with reusable sections (Navbar, About, Projects, Contact, Footer)',
               'Form validation with Zod and client-side UX states',
@@ -425,8 +519,8 @@ export const projects: Project[] = [
           {
             subheading: 'Tooling & Workflow',
             list: [
-              'Vercel v0 used to generate the initial site template and component scaffolds',
-              'Cursor for AI-assisted edits: semantic code navigation, structured refactors, and inline type fixes',
+              'v0 by Vercel used to generate the initial site template and component scaffolds',
+              'Cursor for continued development after moving from v0: AI-assisted edits, semantic code navigation, structured refactors, and inline type fixes',
               'Tight feedback loop with linter/type checks to keep changes safe and incremental',
             ],
           },
@@ -466,6 +560,31 @@ export const projects: Project[] = [
                 icon: 'github',
               },
             ],
+          },
+        ],
+      },
+      {
+        heading: 'Purpose and Goal',
+        content: [
+          {
+            subheading: 'Overview',
+            content:
+              'I needed a clean, professional portfolio site to showcase my projects and make it easy for potential employers and collaborators to get in touch. Rather than using a template service, I built it from scratch to demonstrate the same skills the portfolio is meant to highlight.',
+          },
+          {
+            subheading: 'Background',
+            content:
+              'Previous iterations of my portfolio used different stacks, but I wanted something built with the tools I use professionally — React, TypeScript, and a modern framework with good defaults for performance and SEO. Next.js with the App Router was the natural choice.',
+          },
+          {
+            subheading: 'Initial Designs',
+            content:
+              'The initial structure was scaffolded using v0 by Vercel to get a working template quickly. Once the design and structure were finalized in v0, I moved the code to Cursor in early 2025 and heavily customized it from there. The goal was a single-page layout with clear sections — about, projects, and contact — that felt intentional without being over-designed.',
+          },
+          {
+            subheading: 'Planning Process',
+            content:
+              'The key architectural decisions were driven by simplicity: CSS Modules over a utility framework to keep styles scoped and readable, a typed data model for projects so content changes never break the UI, and a lightweight maintenance mode via middleware for times when the site needs to go offline temporarily.',
           },
         ],
       },

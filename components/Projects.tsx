@@ -215,25 +215,8 @@ export default function Projects() {
                   }}
                   className={styles.slide}
                 >
-                  {/* Left: image pane */}
-                  <div className={styles.imagePane}>
-                    {primaryLink ? (
-                      <a
-                        href={primaryLink.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.imageLink}
-                        aria-label={`Open ${project.title}`}
-                      >
-                        {imageContent}
-                      </a>
-                    ) : (
-                      imageContent
-                    )}
-                  </div>
-
-                  {/* Right: text pane */}
-                  <div className={styles.textPane}>
+                  {/* Full-width header */}
+                  <div className={styles.slideHeader}>
                     <h3 className={styles.projectTitle}>{project.title}</h3>
 
                     {/* Links row */}
@@ -262,7 +245,27 @@ export default function Projects() {
                         })}
                       </div>
                     )}
+                  </div>
 
+                  {/* Left: image pane */}
+                  <div className={styles.imagePane}>
+                    {primaryLink ? (
+                      <a
+                        href={primaryLink.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.imageLink}
+                        aria-label={`Open ${project.title}`}
+                      >
+                        {imageContent}
+                      </a>
+                    ) : (
+                      imageContent
+                    )}
+                  </div>
+
+                  {/* Right: text pane */}
+                  <div className={styles.textPane}>
                     {/* Overview */}
                     {overviewItem?.content && (
                       <p className={styles.overview}>{overviewItem.content}</p>

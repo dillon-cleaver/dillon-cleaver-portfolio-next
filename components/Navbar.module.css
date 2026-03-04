@@ -104,6 +104,7 @@
 }
 
 .navLinks a {
+  color: var(--color-dark);
   font-weight: 500;
   transition: var(--transition);
   position: relative;
@@ -111,7 +112,7 @@
 }
 
 .navLinks a::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 2px;
